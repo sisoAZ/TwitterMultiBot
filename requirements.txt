@@ -1,0 +1,7 @@
+ffmpeg-python
+Pillow
+tweepy
+aiohttp
+requests
+ffmpeg-downloader
+tweepy-authlib
