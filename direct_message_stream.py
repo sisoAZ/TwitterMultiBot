@@ -24,7 +24,7 @@ class DirectMessageStream():
                 continue
             for message in messages:
                 if len(self.messages) != 0:
-                    if message in self.messages:
+                    if self.messages[0].id == message.id:
                         break
                 self.on_message(message)
             if len(messages) > 0:
