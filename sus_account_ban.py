@@ -37,7 +37,7 @@ class SusAccountBan():
         return False
 
     def multiple_mentions(self, text):
-        if text.count("@") >= 2:
+        if text.count("@") >= 3:
             return True
         return False
 

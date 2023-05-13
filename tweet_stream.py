@@ -25,12 +25,13 @@ class StreamingClient:
             if first == False:
                 self.tweets = list((tweet for tweet in new_tweets))
                 first = True
+                time.sleep(self.interval)
                 continue
 
             for tweet in new_tweets:
                 if len(self.tweets) != 0:
                     # 既に取得済みのツイートは無視
-                    if self.tweets[0].id == tweet.id:
+                    if tweet in self.tweets:
                         break
                 tweets.append(tweet)
 

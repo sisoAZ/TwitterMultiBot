@@ -20,10 +20,11 @@ class DirectMessageStream():
             if first == False:
                 self.messages = list((message for message in messages))
                 first = True
+                time.sleep(self.interval)
                 continue
             for message in messages:
                 if len(self.messages) != 0:
-                    if self.messages[0].id == message.id:
+                    if message in self.messages:
                         break
                 self.on_message(message)
             if len(messages) > 0:

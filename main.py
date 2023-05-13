@@ -42,7 +42,7 @@ class TweetCatch(StreamingClient):
             tz=datetime.timezone.utc
         ) - datetime.timedelta(days=30):
             return
-        # メンションが2つ以上あるツイートは弾く
+        # メンションが3つ以上あるツイートは弾く
         if self.SusAccountBan.multiple_mentions(data.full_text):
             return
 
@@ -98,7 +98,7 @@ class TweetCatch(StreamingClient):
         if in_reply_to_tweet_id is not None:
             if media_id is not None:
                 self.api.update_status(
-                    text,
+                    tweet_text,
                     media_ids=[media_id],
                     in_reply_to_status_id=in_reply_to_tweet_id,
                     auto_populate_reply_metadata=True,
